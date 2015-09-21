@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://trevorsherrard.com/print.css" media="print" />
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+
+    <title>Trevor's Robotics and Computer Vision Website.</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>Trevor's Robotics Website</h1>
+        <h2>A website for all of you ROS, computer vision and general robotics enthusiasts!</h2>
+
+        <section id="downloads">
+          <a href="Trevor_Sherrard_Resume.pdf" class="btn">Download My Resume</a>
+          <a href="https://github.com/sherrardTr4129" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="http://www.TrevorSherrard.com" class="btn btn-github">Home</a>
+          <a href="http://www.TrevorSherrard.com/robotics_experience.html" class= btn btn-github>Robotics Experience</a>
+          <a href="http://www.TrevorSherrard.com/ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
+          <a href="http://www.TrevorSherrard.com/blog/" class=btn btn-github>Blog</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+    <h3>
+<a name="Haar Cascade Classifier Training Tutorial" class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Haar Cascade Classifier Training Tutorial</h3>
+
+<p>This page will hopefully serve as a good guide for Haar cascade training using <a href="https://github.com/mrnugget">mrnugget's</a> opencv haar training example.</p>
+
+<p>To begin we clone <a href=https://github.com/mrnugget/opencv-haar-classifier-training.git>this github repository</a> </p>
+
+<pre><code>$ git clone https://github.com/mrnugget/opencv-haar-classifier-training.git </code></pre>
+
+<h3>
+<a name="Preperation of the Samples." class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Preperation of the Samples.</h3>
+
+<p>
+I have found that using 50~60 positive images and around 600~700 negative images works well. Crop the positive images so that most of the excess background is removed. As stated in mrnugget's tutorial, make sure to keep an eye on the ratios, they need to be pretty close to each other. Put these positive images in the directory "positive_images", which is inside of the git repository we cloned earlier. As for the negative samples, these can be any pictures you want as long as they are around the same size. I have found the training to work much better when the negative images are highly varied. Put these negative images in the directory "negative_images"</p>
+
+<p>After you images are ready you need to let the training program know where to find your positive and negative images. run the following commands in the terminal making changes to the file extension if necessary.</p>
+
+<pre><code>$ find ./positive_images -iname "*.jpg" > positives.txt </code></pre>
+<pre><code>$ find ./negative_images -iname "*.jpg" > negatives.txt </code></pre>
+
+<p>Now you should see two .txt files in your directory, negatives.txt and positives.txt. We are now ready to create the sample .vec files used in creating the haar cascade classifier. Using a sample amount of 1500 to 1700 works pretty well. Now find the ratio of the positive images sizes. reduce it by about a factor of 5~6 making sure you keep the ratio equal. I have found that if the height and width added exceed about 150 then you will get a bad_alloc error when running the actual training program. "-w 80 -h 40" works well for rectangular images with a width/height ratio of around 2. for square images (width height ratio of around 1), i have found that "-w 24 -h 24" works well. For this example using, my stop sign classifier, I will use -w 24 -h 24.</p>
+
+<p>Run this command in terminal, making sure to consider the ratio of the positive images. If your samples are rotated in the x/y direction more that 1.1 radians or .6 radians in the z directions make sure to change those parameters as well.</p>
+
+<pre><code>$ perl bin/createsamples.pl positives.txt negatives.txt samples 1700 
+	"opencv_createsamples -bgcolor 0 -bgthresh 0 -maxxangle 1.1
+	-maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 24 -h 24"</code></pre>
+
+<p>Now that the samples have been created individually we need to merge them together using Naotoshi Seo's mergevec tool. first copy the mergevec source into the haartraining folder. </p>
+
+<pre><code>$ cp src/mergevec.cpp ~/opencv-2.4.5/apps/haartraining </code></pre>
+<pre><code>$ cd ~/opencv-2.4.5/apps/haartraining </code></pre>
+
+<p>Now compile the source.</p>
+
+<pre><code>$ g++ `pkg-config --libs --cflags opencv` -I. -o mergevec mergevec.cpp
+  	cvboost.cpp cvcommon.cpp cvsamples.cpp cvhaarclassifier.cpp
+  	cvhaartraining.cpp -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_highgui 
+	-lopencv_objdetect</code></pre>
+
+<p>Now we need to make a .txt file containg all of the individual vec files contained in the samples folder. This can be done quickly by running the following command in terminal.</p>
+
+<pre><code>$ find ./samples -name '*.vec' > samples.txt</code></pre>
+
+<p>Then run the mergevec tool</p>
+
+<pre><code>$ ./mergevec samples.txt samples.vec</code></pre>
+ 
+<h3>
+<a name="Training the Cascade Classifier." class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Training the Cascade Classifier.</h3>
+
+<p>
+We are now ready to start the training itself. Some key things to remember: the -h and -w must be the same as the paramaters used in the sample creation. Also, -numPos must be less than the number of samples used in the sample creation. Keeping that in mind run the following command in terminal</p>
+
+<pre><code>opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt
+  -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1200
+  -numNeg 700 -w 24 -h 24 -mode ALL -precalcValBufSize 512
+  -precalcIdxBufSize 512</code></pre>
+
+<p>Sit back and wait, training can take a long time. When you classifier is done it will be in the "classifier" directory.</p>
+
+<p>To test your finish classifer run the following python code.</p>
+
+<pre><code>
+#opens up a webcam feed so you can then test your classifer in real time
+#using detectMultiScale
+import numpy
+import cv2
+
+def detect(img):
+    cascade = cv2.CascadeClassifier("cascade.xml")
+    rects = cascade.detectMultiScale(img, 1.3, 4, cv2.cv.CV_HAAR_SCALE_IMAGE, (20,20))
+
+    if len(rects) == 0:
+        return [], img
+    rects[:, 2:] += rects[:, :2]
+    return rects, img
+
+def box(rects, img):
+    for x1, y1, x2, y2 in rects:
+        cv2.rectangle(img, (x1, y1), (x2, y2), (127, 255, 0), 2)
+    #cv2.imwrite('one.jpg', img);
+
+cap = cv2.VideoCapture(0)
+cap.set(3,400)
+cap.set(4,300)
+
+while(True):
+    ret, img = cap.read()
+    rects, img = detect(img)
+    box(rects, img)
+    cv2.imshow("frame", img)
+    if(cv2.waitKey(1) & 0xFF == ord('q')):
+	break
+
+</code></pre>
+
+<h3>
+<a name="Results" class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Results</h3>
+
+<p>Here are some of the results I have gotten from my haar training with stop signs. All of my classifiers can be found <a href="https://github.com/sherrardTr4129/Haar_Cascade_Classifiers">here</a> </p>
+
+<br>
+
+<p>Results: </p>
+
+<img src="good1.png" alt="stop sign haar" height= "150" width= "200">
+<img src="good2.png" alt="stop sign haar" height= "150" width= "200">
+<img src="good3.jpg" alt="stop sign haar" height= "150" width= "200">
+<img src="stopSign4.jpg" alt="stop sign haar" height= "150" width= "200">
+
+<h3>
+<a name="Evolution of a Classifier During Training" class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Evolution of a Classifier During Training</h3>
+
+<p>Here is an image I put together by testing partial classifiers obtained at each stage. I think it is a good demonstration of how the cascade training process works.</p>
+
+<br>
+
+<img src="HaarEvolution.jpg" alt="haar evolution" height= "425" width= "750">
+
+
+<h3>
+<a name="Haar Classifier Training on the Cloud" class="anchor" href="Haar_training.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Haar Classifier Training on the Cloud</h3>
+
+<p>Something that isn't often discussed, but should be rather obvious in circumventing the time constraint of training a classifier; The cloud. I have been able to train classifiers in ~20 minutes, with good results. I use DigitalOcean droplet servers. If you spin up an instance of the best available server, you can train around 3 classifiers in an hour. Use RSync to get the finished classifier when you're done.</p>
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65376015-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</html>

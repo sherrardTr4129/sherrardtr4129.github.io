@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://trevorsherrard.com/print.css" media="print" />
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+
+    <title>Trevor's Robotics and Computer Vision Website.</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Trevor's Robotics Website</h1>
+        <h2>A website for all of you ROS, computer vision and general robotics enthusiasts!</h2>
+
+        <section id="downloads">
+          <a href="Trevor_Sherrard_Resume.pdf" class="btn">Download My Resume</a>
+          <a href="https://github.com/sherrardTr4129" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="http://www.TrevorSherrard.com" class="btn btn-github">Home</a>
+          <a href="http://www.TrevorSherrard.com/robotics_experience.html" class= btn btn-github>Robotics Experience</a>
+          <a href="http://www.TrevorSherrard.com/ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
+          <a href="http://www.TrevorSherrard.com/blog/" class=btn btn-github>Blog</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>
+        <a name="Haar" class="anchor" href="ComputerVision.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Haar-based cascade classifier training</h3>
+         <p>I have compiled a tutorial on how to train Haar-based cascade classifiers using the opencv haartraining app. My tutorial as well as some example usage can be found on the <a href="Haar_training.html">Haar cascade training tutorial</a> page.</p>
+
+        <h3>
+        <a name="Haar" class="anchor" href="ComputerVision.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Haar-based cascade Mobile Testing Application</h3>
+        <p>I have developed an app that can test these Haar-based cascade files on the go. Paste the URL of a plain text XML file into the text box and hit the button! once the link text disappears you can the click on "my_classifier" from the classifier selection menu. This menu is obtained by clicking on the three dots at the bottom of the screen. This app is available on android devices through the Google play store <a href="https://play.google.com/store/apps/details?id=org.opencv.samples.mobilehaar">here</a>. &nbsp;&nbsp;&nbsp;</p>
+
+        <p><img src="good_detection_screenshot.jpg" alt="good detection from app" width="600" height="375"></p>
+   
+
+
+        <h3>
+        <a name="Horizon" class="anchor" href="ComputerVision.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>High Altitude Balloon Horizon Detection</h3>
+        <p>I have created a program for high altitude balloons to use to find their orientation. It takes images from two 90 degree offset cameras and detects the horizon in each image. The angle relative to the vehicle is then computed. If the vehicle is perpendicular to the horizon, theta should be near 90 degrees or Pi/2 radians. This is done by using Canny edge detection and then applying a hough line transform. Here is a good horizon detection, with the angle offset computed in a counter-clockwise manner, printed in degrees.</p>
+        
+        <p><img src="houghlines.jpg" alt="Horizon" width="600" height="375"></p>
+
+        
+        
+      </section>
+    </div>
+  </body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65376015-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</html>

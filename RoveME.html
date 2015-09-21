@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://trevorsherrard.com/print.css" media="print" />
+
+    <title>Trevor's Robotics and Computer Vision Website.</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>Trevor's Robotics Website</h1>
+        <h2>A website for all of you ROS, computer vision and general robotics enthusiasts!</h2>
+
+        <section id="downloads">
+          <a href="Trevor_Sherrard_Resume.pdf" class="btn">Download My Resume</a>
+          <a href="https://github.com/sherrardTr4129" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="http://www.TrevorSherrard.com" class="btn btn-github">Home</a>
+          <a href="http://www.TrevorSherrard.com/robotics_experience.html" class= btn btn-github>Robotics Experience</a>
+          <a href="http://www.TrevorSherrard.com/ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
+          <a href="http://www.TrevorSherrard.com/blog/" class=btn btn-github>Blog</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="RoveME.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>RoveME; My Large Scale ROS Robot Platform</h3>
+
+<p>RoveME is my ROS testbed. I hope to use it to test my own robotics algorithms in the future. It is constructed from the AndyMark basic bare-bones chassis. It is powered by a simple 12 volt battery. A 1100 watt inverter powers the kinect and the micro-desktop that controls the robot. I have a small controller board that powers the motor for the NeatoXV LIDAR and send the data over USB to the desktop computer. </p>
+
+
+<p>RoveME is a three level robot. That is, there is the base which contains the computer, battery, and power inverter. The second level currently houses the kinect sensor, but has room for other sensors. the top level is dedicated to the NeatoXV LIDAR scanner. The first, second and third levels of the RoveME platform can be seen below respectively.</p>
+<br />
+<p>base level:</p>
+<img src="base.jpg">
+<br /><br />
+<p>kinect level:</p>
+<img src="kinect.jpg">
+<br /><br />
+<p>NeatoXV LIDAR level:</p>
+<img src="neato_lidar.jpg">
+<p>So far, the RoveME platform has successfully used SLAM to make maps of rooms and navigate through them.  </p>
+<br />
+<p>Here is a <a href="RoveMEwriteup.pdf">write up</a> done for RoveME.</p>
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65376015-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</html>
