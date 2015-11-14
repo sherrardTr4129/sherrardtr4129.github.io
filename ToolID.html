@@ -20,7 +20,7 @@
         <section id="downloads">
           <a href="Trevor_Sherrard_Resume.pdf" class="btn">Download My Resume</a>
           <a href="https://github.com/sherrardTr4129" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-          <a href="http://www.TrevorSherrard.com" class="btn btn-github">Home</a>
+          <a href="http://www.TrevorSherrard.com" class="btn">Home</a>
           <a href="http://www.TrevorSherrard.com/robotics_experience.html" class= btn btn-github>Robotics Experience</a>
           <a href="http://www.TrevorSherrard.com/ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
           <a href="http://www.TrevorSherrard.com/blog/" class=btn btn-github>Blog</a>
@@ -30,25 +30,15 @@
 
     <div class="container">
       <section id="main_content">
+        
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>ToolID, the tool identification project for the CSH project room.</h3>
 
-<h3>
-<a name="welcome-to-github-pages" class="anchor" href="robotics_experience.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Robotics Projects</h3>
+<p>This project will allow people who are new to the project room at the Computer Science house at RIT to know when to put tools away, or where to find more of said tool. It uses a raspberry pi and a camera to identify tools using HAAR classifiers. THe location of the tools are hard coded into the program. a laser on a stepper motor gimbal system then points to where to the tool is usually located after receiving serial commands from the raspberry pi.</p>
 
-<p>I have nearly completed my second large scale robotics project. The first project was done for Imagine RIT in the winter months of 2014. It was a small platform that could track people faces and follow them around using a meccanum wheel drive system. My second project is a robust ROS based robot that I will be able to use for possible higher level projects.
-<br /><br />
-<img src="SortMEV2.jpg" align="left"  height="168" width="250" style="PADDING-RIGHT: 15px"; style="PADDING-BOTTOM: 15px">
-For information about SortME, the small face tracking platform, please visit the project page: <a href="SortME.html">SortME</a>
-<br /> <br /> <br /> <br /> <br />
-<img src="top_angle.jpg" align="left"  height="168" width="250" style="PADDING-RIGHT: 15px"; style="PADDING-BOTTOM: 15px">
-For information about RoveME, my large scale ROS robotics platform, please visit the project page: <a href="RoveME.html">RoveME</a></p>
-<br /> <br /> <br />
-<img src="ceevee.jpg" align="left"  height="168" width="250" style="PADDING-RIGHT: 15px"; style="PADDING-BOTTOM: 15px">
-To see more about my robot vision education platform, please visit CeeVee's page: <a href="ceevee.html">CeeVee</a>
-<br /> <br /> <br /><br /><br /> <br /> 
-<img src="stepper.jpg" align="left"  height="300" width="250" style="PADDING-RIGHT: 15px"; style="PADDING-BOTTOM: 15px">
-To see more about my tool identification project for the Computer Science House at RIT, please visit the project page: <a href="ToolID.html">ToolID</a>
-<br /> <br /> <br />
-</p>
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Room Coordinate System</h3>
+<p>The coordinate system that the gimbal uses to point out tools is quite simple. Due to the fact that we can imagine that the room is stretched out and laid flat. If we treat the center of the door as (0,0) of our coordinate system then we can use basic trigonometry to get the angles needed to move the motors. This is only true if the location of the tools are known.</p>
+
+
 
 
 
@@ -63,5 +53,6 @@ To see more about my tool identification project for the Computer Science House 
 
   ga('create', 'UA-65376015-1', 'auto');
   ga('send', 'pageview');
+
   </script>
 </html>
