@@ -35,9 +35,17 @@
 
 <p>This project will allow people who are new to the project room at the Computer Science house at RIT to know when to put tools away, or where to find more of said tool. It uses a raspberry pi and a camera to identify tools using HAAR classifiers. THe location of the tools are hard coded into the program. a laser on a stepper motor gimbal system then points to where to the tool is usually located after receiving serial commands from the raspberry pi.</p>
 
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Control System</h3>
+<p>The gimbal is controlled by serial commands send over USB to the arduino controlling the steppers. The commands are in the format of "baseSteps : laserSteps & ". Where baseSteps and laserSteps are the number of steps to step the base motor and laser motor respectively. The sign of the step also indicates the direction the motors will move.</p>
+
+
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Room Coordinate System</h3>
 <p>The coordinate system that the gimbal uses to point out tools is quite simple. Due to the fact that we can imagine that the room is stretched out and laid flat. If we treat the center of the door as (0,0) of our coordinate system then we can use basic trigonometry to get the angles needed to move the motors. This is only true if the location of the tools are known.</p>
 
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Standard Program Execution</h3>
+<p>A standard execution of the program is as follows. The user holds a tool up to the camera, and the computer identifies it. Then hard-coded coordinate for the tools are turned into the number of steps needed to point to that coordinate. Then once to laser is adjusted to that point, the laser will hold its position until the user presses enter. Then the laser will move back to it's default position. </p>
 
 
 
