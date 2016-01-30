@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Trevor&#8217;s Robotics and Machine Vision Blog | For all of you ROS and machine vision enthusiasts!</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://trevorsherrard.com/blog/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://trevorsherrard.com/blog/wp-content/themes/twentyfourteen/js/html5.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="Trevor&#039;s Robotics and Machine Vision Blog &raquo; Feed" href="http://trevorsherrard.com/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Trevor&#039;s Robotics and Machine Vision Blog &raquo; Comments Feed" href="http://trevorsherrard.com/blog/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/trevorsherrard.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='twentyfourteen-lato-css'  href='http://fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://trevorsherrard.com/blog/wp-content/themes/twentyfourteen/genericons/genericons.css?ver=3.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfourteen-style-css'  href='http://trevorsherrard.com/blog/wp-content/themes/twentyfourteen/style.css?ver=4.3.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfourteen-ie-css'  href='http://trevorsherrard.com/blog/wp-content/themes/twentyfourteen/css/ie.css?ver=20131205' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://trevorsherrard.com/blog/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://trevorsherrard.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://trevorsherrard.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://trevorsherrard.com/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.3.1" />
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body class="home blog masthead-fixed list-view full-width grid">
+<div id="page" class="hfeed site">
+	
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
+			<h1 class="site-title"><a href="index.html" rel="home">Trevor&#8217;s Robotics and Machine Vision Blog</a></h1>
+
+			<div class="search-toggle">
+				<a href="index.html#search-container" class="screen-reader-text">Search</a>
+			</div>
+
+			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+				<button class="menu-toggle">Primary Menu</button>
+				<a class="screen-reader-text skip-link" href="index.html#content">Skip to content</a>
+				<div class="nav-menu"><ul><li class="page_item page-item-2"><a href="http://trevorsherrard.com/blog/about/">About</a></li></ul></div>
+			</nav>
+		</div>
+
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+				<form role="search" method="get" class="search-form" action="index.html">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>			</div>
+		</div>
+	</header><!-- #masthead -->
+
+	<div id="main" class="site-main">
+
+<div id="main-content" class="main-content">
+
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+		
+<article id="post-61" class="post-61 post type-post status-publish format-standard has-post-thumbnail hentry category-robotics tag-8th tag-birthday tag-robotics-2 tag-ros tag-trevor-sherrard">
+	
+	<a class="post-thumbnail" href="http://trevorsherrard.com/blog/robotics/happy-birthday-ros/">
+	<img width="640" height="358" src="http://trevorsherrard.com/blog/wp-content/uploads/2015/12/ROS-8-Years-thumb-640x358-1326-1449704107925.png" class="attachment-twentyfourteen-full-width wp-post-image" alt="ROS-8-Years-thumb-640x358-1326-1449704107925" />	</a>
+
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/happy-birthday-ros/" rel="bookmark">Happy Birthday ROS!</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/happy-birthday-ros/" rel="bookmark"><time class="entry-date" datetime="2015-12-10T03:45:09+00:00">December 10, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/happy-birthday-ros/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>It is robot operating system&#8217;s (ROS) 8th birthday today! woooo!<br />
+<a href="http://trevorsherrard.com/blog/wp-content/uploads/2015/12/ROS-8-Years-thumb-640x358-1326-1449704107925.png"><img src="http://trevorsherrard.com/blog/wp-content/uploads/2015/12/ROS-8-Years-thumb-640x358-1326-1449704107925-300x168.png" alt="ROS-8-Years-thumb-640x358-1326-1449704107925" width="300" height="168" class="alignnone size-medium wp-image-62" /></a></p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta"><span class="tag-links"><a href="http://trevorsherrard.com/blog/tag/8th/" rel="tag">8th</a><a href="http://trevorsherrard.com/blog/tag/birthday/" rel="tag">birthday</a><a href="http://trevorsherrard.com/blog/tag/robotics-2/" rel="tag">Robotics</a><a href="http://trevorsherrard.com/blog/tag/ros/" rel="tag">ROS</a><a href="http://trevorsherrard.com/blog/tag/trevor-sherrard/" rel="tag">Trevor Sherrard</a></span></footer></article><!-- #post-## -->
+
+<article id="post-50" class="post-50 post type-post status-publish format-link hentry category-machine-vision post_format-post-format-link">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/machine-vision/" rel="category tag">machine vision</a></span>
+		</div><!-- .entry-meta -->
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/machine-vision/opencv-mobile-haar-classifier-now-available-on-google-play/" rel="bookmark">OpenCV mobile Haar Classifier now available on google play!</a></h1>
+		<div class="entry-meta">
+			<span class="post-format">
+				<a class="entry-format" href="http://trevorsherrard.com/blog/type/link/">Link</a>
+			</span>
+
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/machine-vision/opencv-mobile-haar-classifier-now-available-on-google-play/" rel="bookmark"><time class="entry-date" datetime="2015-07-01T22:31:37+00:00">July 1, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>
+						<span class="comments-link"><a href="http://trevorsherrard.com/blog/machine-vision/opencv-mobile-haar-classifier-now-available-on-google-play/#respond">Leave a comment</a></span>
+			
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>I made an OpenCV Haar Cascade app for android, so you can test your classifiers on the go! It currently only has two built in classifiers, a pair of scissors and a stop sign. I should have the ability to choose a classifier from the file system in the next few days. I hope this will be a good utility for anyone testing their classifier&#8217;s accuracy.</p>
+<p>you will also have to download the OpenCV manager if you don&#8217;t already have it.</p>
+<p>Here&#8217;s the  <a href="https://play.google.com/store/apps/details?id=org.opencv.samples.mobilehaar" title="link" target="_blank">link</a></p>
+	</div><!-- .entry-content -->
+
+	</article><!-- #post-## -->
+
+<article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-robotics tag-computer-vision tag-robotics-2 tag-roveme">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/roveme-rebuild/" rel="bookmark">RoveME rebuild</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/roveme-rebuild/" rel="bookmark"><time class="entry-date" datetime="2015-05-28T19:40:49+00:00">May 28, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/roveme-rebuild/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Currently working on a complete rebuild of roveME, the big ROS robot. I hope to have all of the motor control and battery stuff on the first level. I am building a more robust second level for the control systems and LIDAR.</p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta"><span class="tag-links"><a href="http://trevorsherrard.com/blog/tag/computer-vision/" rel="tag">computer vision</a><a href="http://trevorsherrard.com/blog/tag/robotics-2/" rel="tag">Robotics</a><a href="http://trevorsherrard.com/blog/tag/roveme/" rel="tag">roveme</a></span></footer></article><!-- #post-## -->
+
+<article id="post-43" class="post-43 post type-post status-publish format-standard hentry category-uncategorized">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/uncategorized/" rel="category tag">Uncategorized</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/uncategorized/sortmes-growing-popularity/" rel="bookmark">sortME&#8217;s growing popularity</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/uncategorized/sortmes-growing-popularity/" rel="bookmark"><time class="entry-date" datetime="2015-04-23T22:53:57+00:00">April 23, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/uncategorized/sortmes-growing-popularity/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>I have noticed several people taking an interest in sortME on hackaday.io and other places. Even Atmel corporation along with other professional roboticists have taken a liking to my little friend. Due to this I will be added more documentation and pictures to my website. If there are any examples of computer vision awesomeness that you would like to see run on the sortME platform, please let me know!</p>
+	</div><!-- .entry-content -->
+	
+	</article><!-- #post-## -->
+
+<article id="post-37" class="post-37 post type-post status-publish format-standard hentry category-uncategorized">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/uncategorized/" rel="category tag">Uncategorized</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/uncategorized/sortme-featured-on-hackaday-io-list/" rel="bookmark">SortME featured on hackaday.io list</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/uncategorized/sortme-featured-on-hackaday-io-list/" rel="bookmark"><time class="entry-date" datetime="2015-03-04T21:15:55+00:00">March 4, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/uncategorized/sortme-featured-on-hackaday-io-list/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>SortME the computer vision robot was featured under the beagle bone black hackaday.io <a href="http://hackaday.io/list/3562-beaglebone-projects" title="list" target="_blank">list</a>!</p>
+	</div><!-- .entry-content -->
+	
+	</article><!-- #post-## -->
+
+<article id="post-28" class="post-28 post type-post status-publish format-standard hentry category-robotics tag-encoders tag-robotics-2 tag-ros">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/roveme-successful-encoder-test/" rel="bookmark">Roveme successful encoder test</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/roveme-successful-encoder-test/" rel="bookmark"><time class="entry-date" datetime="2015-01-22T23:03:24+00:00">January 22, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/roveme-successful-encoder-test/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Encoders are on the robot and working! Here is a <a href="http://youtu.be/-7k-BSqRK1w" title="RoveMe encoder" target="_blank">Link</a> to the video. Now to work on an odometry publishing node.</p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta"><span class="tag-links"><a href="http://trevorsherrard.com/blog/tag/encoders/" rel="tag">encoders</a><a href="http://trevorsherrard.com/blog/tag/robotics-2/" rel="tag">Robotics</a><a href="http://trevorsherrard.com/blog/tag/ros/" rel="tag">ROS</a></span></footer></article><!-- #post-## -->
+
+<article id="post-23" class="post-23 post type-post status-publish format-standard hentry category-uncategorized">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/uncategorized/" rel="category tag">Uncategorized</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/uncategorized/haar-based-cascade-training-tutorial/" rel="bookmark">Haar based cascade training tutorial</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/uncategorized/haar-based-cascade-training-tutorial/" rel="bookmark"><time class="entry-date" datetime="2015-01-11T01:07:12+00:00">January 11, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/uncategorized/haar-based-cascade-training-tutorial/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>People have been asking me about how I trained my OpenCV Haar cascade classifiers from this Github <a href="https://github.com/sherrardTr4129/Haar_Cascade_Classifiers" title="repository" target="_blank">repository</a>. I have created a tutorial on this. It is located <a href="../Haar_training.html" title="here" target="_blank">here</a> on my main website. Happy training!</p>
+	</div><!-- .entry-content -->
+	
+	</article><!-- #post-## -->
+
+<article id="post-20" class="post-20 post type-post status-publish format-standard hentry category-robotics">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/odometry/" rel="bookmark">RoveME odometry</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/odometry/" rel="bookmark"><time class="entry-date" datetime="2015-01-04T23:55:29+00:00">January 4, 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/odometry/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>I wanted to add odometry and IMU capabilities for RoveME. So I went and ordered the Razor 9 DOF IMU and some Quadrature encoders. </p>
+	</div><!-- .entry-content -->
+	
+	</article><!-- #post-## -->
+
+<article id="post-17" class="post-17 post type-post status-publish format-standard hentry category-robotics">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/neatoxv-sensor-update/" rel="bookmark">neatoXV sensor update</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/neatoxv-sensor-update/" rel="bookmark"><time class="entry-date" datetime="2014-12-30T03:45:44+00:00">December 30, 2014</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/neatoxv-sensor-update/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Today I found out that my NeatoXV Lidar scanner uses triangulation rather than time of flight to determine distances. This <em>should</em> mean that I can get accurate readings outdoors. Maybe.</p>
+	</div><!-- .entry-content -->
+	
+	</article><!-- #post-## -->
+
+<article id="post-13" class="post-13 post type-post status-publish format-standard hentry category-robotics tag-inverse-kinematics tag-robotics-2 tag-trevor-sherrard">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://trevorsherrard.com/blog/category/robotics/" rel="category tag">robotics</a></span>
+		</div>
+		<h1 class="entry-title"><a href="http://trevorsherrard.com/blog/robotics/more-work-with-ik-for-potential-roveme-arm/" rel="bookmark">More work with IK for potential Roveme arm</a></h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://trevorsherrard.com/blog/robotics/more-work-with-ik-for-potential-roveme-arm/" rel="bookmark"><time class="entry-date" datetime="2014-12-16T02:05:20+00:00">December 16, 2014</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://trevorsherrard.com/blog/author/admin/" rel="author">admin</a></span></span>			<span class="comments-link"><a href="http://trevorsherrard.com/blog/robotics/more-work-with-ik-for-potential-roveme-arm/#respond">Leave a comment</a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p><a href="http://trevorsherrard.com/blog/wp-content/uploads/2014/12/scan0003.jpg"><img class="alignnone size-medium wp-image-14" src="http://trevorsherrard.com/blog/wp-content/uploads/2014/12/scan0003-275x300.jpg" alt="scan0003" width="275" height="300" /></a></p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta"><span class="tag-links"><a href="http://trevorsherrard.com/blog/tag/inverse-kinematics/" rel="tag">Inverse kinematics</a><a href="http://trevorsherrard.com/blog/tag/robotics-2/" rel="tag">Robotics</a><a href="http://trevorsherrard.com/blog/tag/trevor-sherrard/" rel="tag">Trevor Sherrard</a></span></footer></article><!-- #post-## -->
+	<nav class="navigation paging-navigation" role="navigation">
+		<h1 class="screen-reader-text">Posts navigation</h1>
+		<div class="pagination loop-pagination">
+			<span class='page-numbers current'>1</span>
+<a class='page-numbers' href='http://trevorsherrard.com/blog/page/2/'>2</a>
+<a class="next page-numbers" href="http://trevorsherrard.com/blog/page/2/">Next &rarr;</a>		</div><!-- .pagination -->
+	</nav><!-- .navigation -->
+	
+		</div><!-- #content -->
+	</div><!-- #primary -->
+	</div><!-- #main-content -->
+
+<div id="secondary">
+		<h2 class="site-description">For all of you ROS and machine vision enthusiasts!</h2>
+	
+	
+	</div><!-- #secondary -->
+
+		</div><!-- #main -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			
+			<div class="site-info">
+								<a href="http://wordpress.org/">Proudly powered by WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script type='text/javascript' src='http://trevorsherrard.com/blog/wp-content/themes/twentyfourteen/js/functions.js?ver=20140616'></script>
+</body>
+</html>

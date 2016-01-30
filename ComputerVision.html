@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://trevorsherrard.com/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="http://www.trevorsherrard.com/print.css" media="print" />
     <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 
     <title>Trevor's Robotics and Computer Vision Website.</title>
@@ -22,10 +22,10 @@
         <section id="downloads">
           <a href="Trevor_Sherrard_Resume.pdf" class="btn">Download My Resume</a>
           <a href="https://github.com/sherrardTr4129" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-          <a href="http://www.TrevorSherrard.com" class="btn btn-github">Home</a>
-          <a href="http://www.TrevorSherrard.com/robotics_experience.html" class= btn btn-github>Robotics Experience</a>
-          <a href="http://www.TrevorSherrard.com/ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
-          <a href="http://www.TrevorSherrard.com/blog/" class=btn btn-github>Blog</a>
+          <a href="index.html" class="btn btn-github">Home</a>
+          <a href="robotics_experience.html" class= btn btn-github>Robotics Experience</a>
+          <a href="ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
+          <a href="blog/index.html" class=btn btn-github>Blog</a>
         </section>
       </div>
     </header>
@@ -48,7 +48,16 @@
         <a name="Horizon" class="anchor" href="ComputerVision.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>High Altitude Balloon Horizon Detection</h3>
         <p>I have created a program for high altitude balloons to use to find their orientation. It takes images from two 90 degree offset cameras and detects the horizon in each image. The angle relative to the vehicle is then computed. If the vehicle is perpendicular to the horizon, theta should be near 90 degrees or Pi/2 radians. This is done by using Canny edge detection and then applying a hough line transform. Here is a good horizon detection, with the angle offset computed in a counter-clockwise manner, printed in degrees.</p>
         
-        <p><img src="houghlines.jpg" alt="Horizon" width="600" height="375"></p>
+        <p><img src="houghlines.jpg" alt="Horizon" width="600" height="375"> &nbsp;&nbsp;&nbsp</p>
+
+        <h3>
+        <a name="Augmented" class="anchor" href="ComputerVision.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Augmented Reality Using OpenCV</h3>
+        <p>I have been working on an augmented reality vision system that will allow one to see different 3D projections using OpenCV. depending on the particular icon in the corner of the checkerboard target, the corresponding 3D image will come up. The icons are recognized by a Haar classifier. The code can be found on my <a href="https://github.com/sherrardTr4129/AugmentedPal-">Github</a>. See below for a video of it in action. &nbsp;&nbsp;&nbsp</p>
+
+<p><video width="600" height="375" controls>
+  <source src="final3D.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video></p>
 
         
         
