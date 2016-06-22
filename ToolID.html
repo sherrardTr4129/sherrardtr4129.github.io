@@ -23,14 +23,14 @@
           <a href="index.html" class="btn">Home</a>
           <a href="robotics_experience.html" class= btn btn-github>Robotics Experience</a>
           <a href="ComputerVision.html" class=btn btn-github>Computer Vision Experience</a>
-          <a href="blog/index.html" class=btn btn-github>Blog</a>
+          <a href="blog/" class=btn btn-github>Blog</a>
         </section>
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-        
+
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>ToolID, the tool identification project for the CSH project room.</h3>
 
 <p>This project will allow people who are new to the project room at the Computer Science house at RIT to know when to put tools away, or where to find more of said tool. It uses a raspberry pi and a camera to identify tools using HAAR classifiers. THe location of the tools are hard coded into the program. a laser on a stepper motor gimbal system then points to where to the tool is usually located after receiving serial commands from the raspberry pi.</p>
@@ -38,13 +38,13 @@
 
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Control System</h3>
 <p>The gimbal is controlled by serial commands send over USB to the arduino controlling the steppers. The commands are in the format of "baseSteps : laserSteps & ". Where baseSteps and laserSteps are the number of steps to step the base motor and laser motor respectively. The sign of the step also indicates the direction the motors will move.
-<br /> <br /> 
-Below Is a video of some simple serial commands moving the gimbal. 
+<br /> <br />
+Below Is a video of some simple serial commands moving the gimbal.
 <br /> <br /> <br />
 <video width="570" height="320" controls>
   <source src="ToolID.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video> 
+</video>
 
 </p>
 
