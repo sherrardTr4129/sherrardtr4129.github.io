@@ -53,9 +53,7 @@ I have found that using 50~60 positive images and around 600~700 negative images
 
 <p>Run this command in terminal, making sure to consider the ratio of the positive images. If your samples are rotated in the x/y direction more that 1.1 radians or .6 radians in the z directions make sure to change those parameters as well.</p>
 
-<pre><code>$ perl bin/createsamples.pl positives.txt negatives.txt samples 1700
-	"opencv_createsamples -bgcolor 0 -bgthresh 0 -maxxangle 1.1
-	-maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 24 -h 24"</code></pre>
+<pre><code>$ perl bin/createsamples.pl positives.txt negatives.txt samples 1700 "opencv_createsamples -bgcolor 0 -bgthresh 0 -maxxangle 1.1 -maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 24 -h 24"</code></pre>
 
 <p>Now that the samples have been created individually we need to merge them together using Naotoshi Seo's mergevec tool. first copy the mergevec source into the haartraining folder. </p>
 
