@@ -64,10 +64,7 @@ I have found that using 50~60 positive images and around 600~700 negative images
 
 <p>Now compile the source.</p>
 
-<pre><code>$ g++ `pkg-config --libs --cflags opencv` -I. -o mergevec mergevec.cpp
-  	cvboost.cpp cvcommon.cpp cvsamples.cpp cvhaarclassifier.cpp
-  	cvhaartraining.cpp -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_highgui
-	-lopencv_objdetect</code></pre>
+<pre><code>$ g++ `pkg-config --libs --cflags opencv` -I. -o mergevec mergevec.cpp cvboost.cpp cvcommon.cpp cvsamples.cpp cvhaarclassifier.cpp cvhaartraining.cpp -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_highgui -lopencv_objdetect</code></pre>
 
 <p>Now we need to make a .txt file containg all of the individual vec files contained in the samples folder. This can be done quickly by running the following command in terminal.</p>
 
@@ -83,10 +80,7 @@ I have found that using 50~60 positive images and around 600~700 negative images
 <p>
 We are now ready to start the training itself. Some key things to remember: the -h and -w must be the same as the paramaters used in the sample creation. Also, -numPos must be less than the number of samples used in the sample creation. Keeping that in mind run the following command in terminal</p>
 
-<pre><code>opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt
-  -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1200
-  -numNeg 700 -w 24 -h 24 -mode ALL -precalcValBufSize 512
-  -precalcIdxBufSize 512</code></pre>
+<pre><code>opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1200 -numNeg 700 -w 24 -h 24 -mode ALL -precalcValBufSize 512 -precalcIdxBufSize 512</code></pre>
 
 <p>Sit back and wait, training can take a long time. When you classifier is done it will be in the "classifier" directory.</p>
 
