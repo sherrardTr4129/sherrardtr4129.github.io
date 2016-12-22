@@ -35,7 +35,12 @@
 	<h3>
 	<a name="RoboticsSystems" class="anchor" href="Classwork.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>RIT Robotics Systems (EEEE 485)</h3>
 	<p>I took Robotics Systems (EEEE485) in the Fall semester of 2016. The class was composed of a lecture and lab section. We did 5 labs over the course of the first half of the semester to learn about motor control and basic closed loop feedback. We also learned how to implement the SPI and I2C protocols in our own projects. The second half of the semester we partnered up to design and build a differential drive robot. The requirements were closed loop speed control, line following and obstacle detection and avoidance. We also had add a special function to the robot of our own choosing. My partner and I decided to make a weather classification robot. It would use temperature, pressure and humidity to classify the current outdoor weather conditions. It was designed to the drive in a pattern to communicate the conditions it classifies. The classification was done using a simple regression algorithm in SciPy.</p>
-	<p><img src="CHAAC.png" alt="CHAAC" width="700" height="200"></p>
+	<p>
+      <video width="600" height="400" controls>
+      <source src="CHAAC.webm" type="video/webm">
+      Your browser does not support the video tag.
+      </video>
+  </p>
 	<p>The Raspberry Pi takes weather data from the sparkfun BME280 weather sensor. From this the Raspberry Pi classifies the weather conditions as either stormy, cloudy, clear, snowy or rainy. The robot then does a certain pre-programmed movement to indicate its prediction.</p>
   <p>For more on the CHAAC robot project, see its <a href="CHAAC.html">project page</a>.</p>
       </section>
