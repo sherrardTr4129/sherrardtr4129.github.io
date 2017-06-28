@@ -1,2 +1,2 @@
 # PersonalWebsite
-My personal website hosting repository.
+My personal website
