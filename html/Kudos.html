@@ -38,9 +38,13 @@
             <p>Before the robot was bought by Computer Science House, it only had remote control functionality via a wireless Xbox controller. After it was purchased, I outfitted the robot with a neato XV11 Lidar, a webcam, and a Raspberry Pi 3. I setup hector SLAM on the Raspberry Pi using the LaserScan data from the XV11 Lidar. I setup the ros visualization tool Rviz to receive the map topic. I drove the robot around floor to generate a map and localize within it. I encountered a huge latency issue as the Raspberry Pi was unable to perform SLAM in a timely fasion. A new aproach was required.</p>
             <h3><a name="welcome-to-github-pages" class="anchor" href="Kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Fixing the latency Issue</h3>
             <p>The solution to this problem involved making use of the distributed computing features of ROS. CSH has a proxmox virtual machine cluster that members can make use of. I instantiated an Ubuntu VM running in our server room and installed ROS Kinetic packages on it. The distribution architecture was changed to have the robot publishing LaserScan Topics, which are received by hector SLAM running on the VM. A map is generated and the pose of the robot is computed. The map and pose topics are republished over the network. My laptop, running Rviz, subscribes to the these topics and visualizes them.</p>
-    <img src="../images/KudosCommProtocol.png" alt="Kudos Comm protocol" width="640" height="354">
-    <p>This setup fixed the map topic latency issue. The next step was to setup a way to toggle between Xbox control of the robot, and autonomous navigation of floor. </p>
-
+            <img src="../images/KudosCommProtocol.png" alt="Kudos Comm protocol" width="640" height="354"></img>
+            <p>This setup fixed the map topic latency issue. The next step was to setup a way to toggle between Xbox control of the robot, and autonomous navigation of floor. </p>
+            <h3><a name="welcome-to-github-pages" class="anchor" href=kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>A Sign of Success</h3>
+            <p>I was able to drive Kudos through the halls of CSH with the mapping node running on the virtual machine. I was able to watch a map of floor come into being on my laptop's instance of Rviz. This was a very rewarding point in this project. I was on track to solve one of the most struggled with components of this project. See screenshots of the map made in Rviz below.</p>
+            <img src="../images/CSH_Map_2.png" alt="CSH kudos map" width="275" height="400"></img>
+            <img src="../images/CSH_Map_1.png" alt="CSH kudos map" width="275" height="400"></img>
+            <p>now that the mapping node was working properly, I would need to get the navigation stack setup in its entirety. Kudos would need to actuate itself through the current state of the global map. The biggest obstacle would be writing the motor controller node to convert cmd_vel topics into corresponding PWM signals needed to move the wheels appropriately.</p>
     </section>
     </div>
   </body>
