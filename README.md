@@ -1,2 +1,5 @@
 # PersonalWebsite
-My personal website
+
+My personal website which allows me to display my talents and abilities!
+
+Come stop on by and enjoy!
