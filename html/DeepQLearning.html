@@ -30,7 +30,43 @@
       <section id="main_content">
         <h3>
             <a name="welcome-to-github-pages" class="anchor" href="Kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Deep Q-Learning For Indoor Autonomous Agent Navigation</h3>
-            
+            <p>The goal of this project was to investigate the effectiveness of using a Deep Q-Learning Network (DQN) as an effective method for autonomous agent navigation in an unknown environment. The agent would be trained in a
+			physics-consistent simulation environment known as Gazebo. In this environment, three different training stages were constructed, each with increased complexity was compared to the previous. These three training stages can be seen
+			in the figure below. Note the the least complex stage is on the left, and the most complex stage is on the right.</p>
+			
+			<img src="../images/combinedStages.png" alt="Training Stages" height= "200" width= "600">
+			
+			<p>The first three stages had 3000 training episodes run on them, while the last stage had 6000 training episodes run on it. A single training episode could end in three possible outcomes,
+			the agent reaches the goal, the agent has a collision, or the episode times out. Finding the goal rewarded the agent with a +200 reward, while a collision incurred a -200 punishment. During
+			each individual update step, the agent could be punished or rewarded based on a variety of other criterion. The image below outlines the algorithm used to calculate the overall reward for a 
+			given time step.</p>
+			
+			<img src="../images/rewardAlg.png" alt="Reward Calculation" height= "750" width= "600">
+
+			<p>The overall DQN model architecture was composed of an input layer, three dense layers, and an output layer. Dropout layers were added after dense layers in an effort to 
+			reduce over fitting. The overall model architecture can be seen in the image below.</p>
+			
+			<img src="../images/model.png" alt="Model Architecture" height= "1200" width= "600">
+			
+			<p>The input layer shape was 364 which corresponded to 360 for the LIDAR scan points, one for the calculated reward, one for the action taken to receive that reward,
+			and one each the angular and linear velocities. The output layer was composed of five neurons instantiated with a linear activation function. This resulted the model producing a number
+			between 0 and 4, corresponding to the next action to be taken. 0 was left with no forward motion, 1 was left with some forward motion, 2 was full forward, 3 was right with some forward motion,
+			and 4 was right with no forward motion. This mapping can be seen in the image below.</p>
+			
+			<img src="../images/MoveMap.png" alt="Model Output Mapping" height= "550" width= "600">
+			
+			<br><br>
+			
+			<h3><a name="welcome-to-github-pages" class="anchor" href="Kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Episodic Training Time Lapse</h3>
+			<p>The YouTube video below depicts a time lapse of a few training episodes running in each training stage.</p>
+			<iframe width="600" height="325" src="https://www.youtube.com/embed/R2ZupWAl_5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+			<br><br>
+			
+			<h3><a name="welcome-to-github-pages" class="anchor" href="Kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Project Software</h3>
+			<p>This project used heavily modified ROS packages from ROBOTIS to construct the overall simulation environment. The modified software can be found within this 
+			<a href="https://github.com/sherrardTr4129/Deep-Q-Learning-Robot-Navigation">GitHub repository</a>. An IEEE style report was also generated for this project and can be found 
+			<a href="https://github.com/sherrardTr4129/Deep-Q-Learning-Robot-Navigation/blob/master/writeup/pdf/tws4129_Explorations_of_AI_Conf_Paper.pdf">here</a>.</p>
     </section>
     </div>
   </body>
