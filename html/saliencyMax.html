@@ -45,8 +45,21 @@
 	<p>The developed software used to run the frontend and backend components of the webGUI can be found in the ROS package <a href="https://github.com/sherrardTr4129/RBE526-Human-Robot-Interaction/tree/master/hri_web_gui">here</a></p>
 
 	<h3><a name="welcome-to-github-pages" class="anchor" href="Kudos.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Saliency Maximization Algorithm</h3>
-	<p>More to Come Soon!</p>
-    </section>
+	<p>The saliency maximization viewpoint selection algorithm was designed as a visual servoing algorithm of sorts. This means that the maximum (or local maximums) of image saliency within the enviornment were found by incrementally movimg in the direction of saliency maximization. If no direction would further maximize the saliency in the selected viewpoint, then saliency was said to be maximized. The developed saliency maximization algortihm can be seen in a flowchart form in the image below.</p>
+
+	<img src="../images/saliencyMaximizaton.png" alt="Web GUI Software Architecture" height= "750" width= "600">
+
+	<p>It can be seen that the algorithm can be split into two components, the saliency countour detection portion and distance minimization portion. The saliency coutour detection portion constructs a saliency map of the given frame, and finds highly salient regions that fit a set of filtering criteria. From here, the distance between detected contour center of mass and the center of the image is computed. This process is then repeated with image centers shifted in the four cardinal directions. The original computed distances are then compared to the shifted distances to see what proposed movement would best reduce the overall distance of saliency conours to the center of the image. The direction with the most distances reduced by a given threshold is chosen as the direction to move. The direction to move is used to generate a pose offset in the given direction to the autonomous camera arm's current pose. A demonstration of the saliency maximization algorithm running on a webcam using manual movements from the user in the direction suggested by the algorithm can be seen in the video below. Note that the green blobs are filterd saliency contours, the black lines represent the distance between the contours COM and the red arrow is the suggested direction to move.</p>
+
+	<iframe width="600" height="315" src="https://www.youtube.com/embed/XT1T-kBxdh8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<p>This same algorithm was run using images taken from the autonomous camera arm of the Trina2 robot arm. Unfortunatley, the time required to generate and execute trajectories by the MoveIt! motion planners resulted in the image topics needing to be throttled down to sub-hertz frequencies. Due to this system limition, the responsiveness of the robot to saliency information is jerky and infrequent. This algorithm can be seen running on the Trina2 system in the video below.</p>
+
+	<iframe width="600" height="315" src="https://www.youtube.com/embed/bX2uKEfQwgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<p>The generated saliency maximization algorithm can be found in the ROS package <a href="https://github.com/sherrardTr4129/RBE526-Human-Robot-Interaction/tree/master/saliency_to_pose">here</a></p>
+
+      </section>
     </div>
   </body>
   <script>
