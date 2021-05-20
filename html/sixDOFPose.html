@@ -31,7 +31,7 @@
 
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>6-DOF Wireless Pose Capture System</h3>
 
-<p>In some of my graduate research efforts, I was able to create a wireless 6-DOF pose capture system to serve as a human-robot interace. This system makes use of a hand-held vision target tracked by an Intel RealSense depth camera to capture target position in 3D space, and a BNO055 absolute orientation sensor to capture the vision target orientation. In this sense, the vision target orientation and position are captured as independent datastreams that can be fused into one 6-DOF pose data structure. All developed hardware, firmware and software can be found in the GitHub repository <a href="https://github.com/sherrardTr4129/RealSense-BNO055-Pose-Estimation.git">here</a>. Please see the overall system high level block diagram below.</p>
+<p>In some of my graduate research efforts, I was able to create a wireless 6-DOF pose capture system to serve as a human-robot interface. This system makes use of a hand-held vision target tracked by an Intel RealSense depth camera to capture target position in 3D space, and a BNO055 absolute orientation sensor to capture the vision target orientation. In this sense, the vision target orientation and position are captured as independent datastreams that can be fused into one 6-DOF pose data structure. All developed hardware, firmware and software can be found in the GitHub repository <a href="https://github.com/sherrardTr4129/RealSense-BNO055-Pose-Estimation.git">here</a>. Please see the overall system high level block diagram below.</p>
 
 <p><img src="../images/TotalSystemDiagram_RealSense.png" alt="total system flowchart" width="600" height="600"> &nbsp;&nbsp;&nbsp</p>
 
@@ -43,20 +43,20 @@
 
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Position Capture Sub-System</h3>
 
-<p>The orientation capture sub-system obtains the orientation of the vision target through the use of the BNO055 absolute orientation sensor. Data obtained from the orientation sensor is wirelessly streamed to a basestation through a pair of NRF24L01 transcievers. Once the data reaches the basestation MCU, it is streamed into the basestation computer through a serial interface. A custom PCB was designed to manage power delivery and communication with the BNO055 sensor on the vision target, as well as facilitating the wireless communication with the basestation. This PCB will be examined in more detail in a later section. Both the orientation capture component level architecture and orientation data transmission flowchart can be seen below.</p>
+<p>The orientation capture sub-system obtains the orientation of the vision target through the use of the BNO055 absolute orientation sensor. Data obtained from the orientation sensor is wirelessly streamed to a basestation through a pair of NRF24L01 transceivers. Once the data reaches the basestation MCU, it is streamed into the basestation computer through a serial interface. A custom PCB was designed to manage power delivery and communication with the BNO055 sensor on the vision target, as well as facilitating the wireless communication with the basestation. This PCB will be examined in more detail in a later section. Both the orientation capture component level architecture and orientation data transmission flowchart can be seen below.</p>
 
 <p><img src="../images/wirelessBNODiagram.png" alt="wireless paradigm" width="600" height="350"> &nbsp;&nbsp;&nbsp</p>
 <p><img src="../images/orientationCaptureSystem.png" alt="orientation capture subsystem" width="600" height="450"> &nbsp;&nbsp;&nbsp</p>
 
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Overall System Demo</h3>
 
-<p>Once both the orientation and position data streams have been fused on the basestation, the generated Pose is published throughout the system. I have created a demo in which the Pose of a box within a gazebo simulation enviornment is set dynamically using live data from the pose capture interface. Please have a look at this video below.</p>
+<p>Once both the orientation and position data streams have been fused on the basestation, the generated Pose is published throughout the system. I have created a demo in which the Pose of a box within a gazebo simulation environment is set dynamically using live data from the pose capture interface. Please have a look at this video below.</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9gSyu7mS7qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br \><br \>
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>System Hardware and Firmware</h3>
-<p>As previously mentioned, this project also required the developement of custom electrical and mechanical hardware, in addition to various firmware development tasks. A custom PCB was manufactored to power the BNO055 sensor, in addition to facilitating data transmission from the sensor, through the NRF24L01 communication channel. This PCB can be seen below mounted on top of a battery pack, in addition to a rough schematic view of the board.</p>
+<p>As previously mentioned, this project also required the developement of custom electrical and mechanical hardware, in addition to various firmware development tasks. A custom PCB was manufactured to power the BNO055 sensor, in addition to facilitating data transmission from the sensor, through the NRF24L01 communication channel. This PCB can be seen below mounted on top of a battery pack, in addition to a rough schematic view of the board.</p>
 
 <p><img src="../images/wirelessDataTX.jpg" alt="orientation capture TX" width="600" height="750"> &nbsp;&nbsp;&nbsp</p>
 <p><img src="../images/wirelessTxDiagram.png" alt="orientation capture TX schematic" width="600" height="850"> &nbsp;&nbsp;&nbsp</p>
@@ -66,7 +66,7 @@
 <p><img src="../images/wirelessDataRX.jpg" alt="orientation capture TX" width="600" height="750"> &nbsp;&nbsp;&nbsp</p>
 <p><img src="../images/basestationDiagram.png" alt="orientation capture TX schematic" width="600" height="650"> &nbsp;&nbsp;&nbsp</p>
 
-<p>The firmware, electrical and mechanical hardware used in this project can be found in <a href="https://github.com/sherrardTr4129/RealSense-BNO055-Pose-Estimation/tree/main/orientation_capture_subsystem_hardware_and_firmware">this GitHub repository</a>.</p>
+<p>The firmware, electrical and mechanical hardware designed for use in this project can be found in <a href="https://github.com/sherrardTr4129/RealSense-BNO055-Pose-Estimation/tree/main/orientation_capture_subsystem_hardware_and_firmware">this GitHub repository</a>.</p>
 
       </section>
     </div>
