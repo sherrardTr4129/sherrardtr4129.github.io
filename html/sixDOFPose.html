@@ -31,7 +31,31 @@
 
 <h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>6-DOF Wireless Pose Capture System</h3>
 
-<p>More to come soon!</p>
+<p>In some of my graduate research efforts, I was able to create a wireless 6-DOF pose capture system to serve as a human-robot interace. This system makes use of a hand-held vision target tracked by an Intel RealSense depth camera to capture target position in 3D space, and a BNO055 absolute orientation sensor to capture the vision target orientation. In this sense, the vision target orientation and position are captured as independent datastreams that can be fused into one 6-DOF pose data structure. All developed hardware, firmware and software can be found in the GitHub repository <a href="https://github.com/sherrardTr4129/RealSense-BNO055-Pose-Estimation.git">here</a>. Please see the overall system high level block diagram below.</p>
+
+<p><img src="../images/TotalSystemDiagram_RealSense.png" alt="Saliency ROI Motion" width="600" height="600"> &nbsp;&nbsp;&nbsp</p>
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Position Capture Sub-System</h3>
+
+<p>We will now look at some more in-depth details on the position capture portion of the system. As previously mentioned, a hand-held vision target is tracked as a means of allowing user input from motion of said vision target. An Intel RealSense depth camera is used to track the real-world X,Y,Z position of the vision target within the camera reference frame. Once the real-world position of the vision target is extracted, it is smoothed using a windowed average to help remove sudden jumps in detected position due to noise. The overall image processing pipeline can be seen in the figure below.</p>
+
+<p><img src="../images/RealSensePosCapsubSystem.png" alt="Saliency ROI Motion" width="600" height="450"> &nbsp;&nbsp;&nbsp</p>
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Position Capture Sub-System</h3>
+
+<p>The orientation capture sub-system obtains the orientation of the vision target through the use of the BNO055 absolute orientation sensor. Data obtained from the orientation sensor is wirelessly streamed to a basestation through a pair of NRF24L01 transcievers. Once the data reaches the basestation MCU, it is streamed into the basestation computer through a serial interface. A custom PCB was designed to manage power delivery and communication with the BNO055 sensor on the vision target, as well as facilitating the wireless communication with the basestation. This PCB will be examined in more detail in a later section. Both the orientation capture component level architecture and orientation data transmission flowchart can be seen below.</p>
+
+<p><img src="../images/wirelessBNODiagram.png" alt="Saliency ROI Motion" width="600" height="350"> &nbsp;&nbsp;&nbsp</p>
+<p><img src="../images/orientationCaptureSystem.png" alt="Saliency ROI Motion" width="600" height="450"> &nbsp;&nbsp;&nbsp</p>
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Overall System Demo</h3>
+
+<p>Once both the orientation and position data streams have been fused on the basestation, the generated Pose is published throughout the system. I have created a demo in which the Pose of a box within a gazebo simulation enviornment is set dynamically using live data from the pose capture interface. Please have a look at this video below.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9gSyu7mS7qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3><a name="welcome-to-github-pages" class="anchor" href="ToolID.html#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>System Hardware and Firmware</h3>
+
       </section>
     </div>
   </body>
